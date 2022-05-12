@@ -7,7 +7,7 @@ const TOKEN = "5339821615:AAG4o1It7G0frghkFRwqZd6VbP25VIsKTlw";
 const server = express();
 const bot = new TelegramBot(TOKEN, { polling: true });
 const port = process.env.PORT || 5000;
-const gameName = "hangmangame";
+const gameName = "hangmangame17";
 const queries = {};
 
 // public directory content static files
