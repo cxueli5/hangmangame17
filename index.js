@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const TelegramBot = require("node-telegram-bot-api");
 
-const TOKEN = "5377529482:AAFBN_LkvKfbnFs1h8XH6mofmJXnfsoMQoM";
+const TOKEN = "5312948605:AAErfcYzKZDrbYmxKaBuzbP3XVN6N-Dv3c8";
 const server = express();
 const bot = new TelegramBot(TOKEN, { polling: true });
 
@@ -18,24 +18,24 @@ bot.onText(/help/, (msg) =>
   )
 );
 // bot.onText(/start|game/, (msg) => bot.sendGame(msg.from.id, gameName));
-// bot.onText(/game/, (msg) => bot.sendGame(msg.from.id, gameName));
-// bot.on("callback_query", function (query) {
-//     if (query.game_short_name !== gameName) {
-//         bot.answerCallbackQuery(query.id, "Sorry, '" + query.game_short_name + "' is not available.");
-//     } else {
-//         queries[query.id] = query;
-//         let gameurl = "https://hangmangame17.herokuapp.com/index.html?id="+query.id;
-//         bot.answerCallbackQuery({
-//             callback_query_id: query.id,
-//             url: gameurl
-//         });
-//     }
-// });
-bot.gameQuery((ctx) => {
-  let queryId = ctx.callbackQuery.id;
-  let gameurl = "https://hangmangame17.herokuapp.com/index.html?id=" + queryId;
-  ctx.answerGameQuery(gameurl);
+bot.onText(/game/, (msg) => bot.sendGame(msg.from.id, gameName));
+bot.on("callback_query", function (query) {
+    if (query.game_short_name !== gameName) {
+        bot.answerCallbackQuery(query.id, "Sorry, '" + query.game_short_name + "' is not available.");
+    } else {
+        queries[query.id] = query;
+        let gameurl = "https://hangmangame17.herokuapp.com/index.html?id="+query.id;
+        bot.answerCallbackQuery({
+            callback_query_id: query.id,
+            url: gameurl
+        });
+    }
 });
+// bot.gameQuery((ctx) => {
+//   let queryId = ctx.callbackQuery.id;
+//   let gameurl = "https://hangmangame17.herokuapp.com/index.html?id=" + queryId;
+//   ctx.answerGameQuery(gameurl);
+// });
 bot.on("inline_query", function (iq) {
   bot.answerInlineQuery(iq.id, [
     { type: "game", id: "0", game_short_name: gameName },
