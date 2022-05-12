@@ -1,0 +1,16 @@
+.button {
+    background-color: #4CAF50;
+    /* this will apply current style to anything in html with class="button"*/
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 3px;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #08530b;
+    color: white;
+}

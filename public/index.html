@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"
+    />
+    <title>hangman game</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="app.js"></script>
+  </head>
+
+  <body style="background-color: black">
+    <h1 style="color: yellowgreen">Hangman Game</h1>
+    <table bgcolor="#c1d72e" border="0">
+      <tr>
+        <td colspan="5" align="RIGHT">
+          Score:
+          <input
+            type="TEXT"
+            name="score"
+            value="0"
+            onfocus="score.blur();"
+            size="2"
+          />
+          <br />
+          Fails (8=Die):
+          <input
+            type="TEXT"
+            name="lives"
+            value="0"
+            onfocus="lives.blur();"
+            size="2"
+          />
+        </td>
+        <td colspan="4" align="RIGHT">
+          <input
+            type="BUTTON"
+            class="button"
+            onclick="new_word(this.form);"
+            value=" GO "
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" a "
+            onclick="seek('a');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" b "
+            onclick="seek('b');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" c "
+            onclick="seek('c');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" d "
+            onclick="seek('d');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" e "
+            onclick="seek('e');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" f "
+            onclick="seek('f');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" g "
+            onclick="seek('g');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" h "
+            onclick="seek('h');"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" i "
+            onclick="seek('i');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" j "
+            onclick="seek('j');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" k "
+            onclick="seek('k');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" l "
+            onclick="seek('l');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" m "
+            onclick="seek('m');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" n "
+            onclick="seek('n');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" o "
+            onclick="seek('o');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" p "
+            onclick="seek('p');"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" q "
+            onclick="seek('q');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" r "
+            onclick="seek('r');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" s "
+            onclick="seek('s');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" t "
+            onclick="seek('t');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" u "
+            onclick="seek('u');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" v "
+            onclick="seek('v');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" w "
+            onclick="seek('w');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" x "
+            onclick="seek('x');"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" y "
+            onclick="seek('y');"
+          />
+        </td>
+        <td>
+          <input
+            type="BUTTON"
+            class="button"
+            value=" z "
+            onclick="seek('z');"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="8" align="CENTER">
+          <input
+            type="TEXT"
+            name="word"
+            value="              --- Hangman ---"
+            onfocus="word.blur();"
+            size="25"
+          />
+          <br />
+          <input
+            type="TEXT"
+            name="tried"
+            value="        Click GO to get a word"
+            onfocus="tried.blur();"
+            size="25"
+          />
+        </td>
+      </tr>
+    </table>
+    <canvas
+      id="stickman"
+      style="
+        position: relative;
+        left: 0px;
+        top: 20px;
+        background-color: grey;
+        border-style: dashed;
+        border-color: black;
+      "
+      width="120px"
+      >This Text will show if the Browser does NOT support HTML5 Canvas
+      tag</canvas
+    >
+  </body>
+</html>

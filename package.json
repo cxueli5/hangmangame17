@@ -1,0 +1,19 @@
+{
+  
+  "name": "hangmanbot",
+  "version": "1.0.0",
+  "description": "hangman bot for tiktok assignment group 17",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "install": "^0.13.0",
+    "node-telegram-bot-api": "^0.57.0"
+  }
+}
