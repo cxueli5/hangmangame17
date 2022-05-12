@@ -10,18 +10,15 @@ const port = process.env.PORT || 5000;
 const gameName = "hangmangame17";
 const queries = {};
 
-// public directory content static files
-server.use(express.static(path.join(__dirname, "public")));
-
 // help command on telebot to help users play game
 bot.onText(/help/, (msg) =>
   bot.sendMessage(
     msg.from.id,
-    "This is a hangman game. Type any alphabets to guess the word, if the hangeman is fully drawn before the blanks are filled, YOU LOSE. Otherwise, YOU WIN! Click on /leggo if you want to play."
+    "This is a hangman game. Type any alphabets to guess the word, if the hangeman is fully drawn before the blanks are filled, YOU LOSE. Otherwise, YOU WIN! Click on /game if you want to play."
   )
 );
 // start game command on telebot
-bot.onText(/start|leggo/, (msg) => bot.sendGame(msg.from.id, gameName));
+bot.onText(/start|game/, (msg) => bot.sendGame(msg.from.id, gameName));
 // play button logic
 bot.on("callback_query", function (query) {
   if (query.game_short_name !== gameName) {
@@ -45,6 +42,9 @@ bot.on("inline_query", function (iq) {
     { type: "game", id: "0", game_short_name: gameName },
   ]);
 });
+
+// public directory content static files
+server.use(express.static(path.join(__dirname, 'public')));
 
 // high score logic
 server.get("/highscore/:score", function(req, res, next) {
