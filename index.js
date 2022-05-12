@@ -28,12 +28,13 @@ bot.on("callback_query", function (query) {
     );
   } else {
     queries[query.id] = query;
-    let gameURL = "https://hangmangame17.herokuapp.com/"
-    // let gameURL = "https://hangmangame17.herokuapp.com/index.html?id=" + query.id;
-    // bot.answerCallbackQuery({
-    //   callback_query_id: query.id,
-    //   url: gameURL,
-    // });
+    // let gameURL = "https://hangmangame17.herokuapp.com/"
+    //     let gameURL = "https://hangmangame17.herokuapp.com/index.html?id=" + query.id;
+    let gameURL = "https://hangmangame17.herokuapp.com/index.html";
+    bot.answerCallbackQuery({
+      // callback_query_id: query.id,
+      url: gameURL,
+    });
   }
 });
 
