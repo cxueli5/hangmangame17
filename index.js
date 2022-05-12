@@ -17,6 +17,13 @@ bot.onText(/help/, (msg) =>
     "This is a hangman game. Type any alphabets to guess the word, if the hangeman is fully drawn before the blanks are filled, YOU LOSE. Otherwise, YOU WIN! Click on /game if you want to play."
   )
 );
+
+bot.onText(/test/, (msg) =>
+  bot.sendMessage(
+    msg.from.id,
+    "test"
+  )
+);
 // bot.onText(/start|game/, (msg) => bot.sendGame(msg.from.id, gameName));
 bot.onText(/game/, (msg) => bot.sendGame(msg.from.id, gameName));
 bot.on("callback_query", function (query) {
