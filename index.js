@@ -7,14 +7,14 @@ const server = express();
 const bot = new TelegramBot(TOKEN, { polling: true });
 
 const port = process.env.PORT || 5000;
-const gameName = "hangmantt";
+const gameName = "hangman17";
 
 const queries = {};
 
 bot.onText(/help/, (msg) =>
   bot.sendMessage(
     msg.from.id,
-    "This is a hangman game. Type any alphabets to guess the word, if the hangeman is fully drawn before the blanks are filled, YOU LOSE. Otherwise, YOU WIN! Click on /game if you want to play."
+    "This is a hangman game. Type any alphabets to guess the word, if the hangeman is fully drawn before the blanks are filled, YOU LOSE. Otherwise, YOU WIN! Click on /leggo if you want to play."
   )
 );
 
@@ -25,7 +25,7 @@ bot.onText(/test/, (msg) =>
   )
 );
 // bot.onText(/start|game/, (msg) => bot.sendGame(msg.from.id, gameName));
-bot.onText(/game/, (msg) => bot.sendGame(msg.from.id, gameName));
+bot.onText(/start|leggo/, (msg) => bot.sendGame(msg.from.id, gameName));
 bot.on("callback_query", function (query) {
     if (query.game_short_name !== gameName) {
         bot.answerCallbackQuery(query.id, "Sorry, '" + query.game_short_name + "' is not available.");
