@@ -1,15 +1,7 @@
 // telebot codes
 var url = new URL(location.href);
 var playerID = url.searchParams.get("id");
-// submit highscores to telegram
-var xmlhttp = new XMLHttpRequest();
-var url =
-  "https://hangmangame17.herokuapp.com/highscore/" +
-  document.f.score.value +
-  "?id=" +
-  playerID;
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
+
 // hangman game codes
 var list1 = new Array(); // list of used letters (correct)
 var list1_index = 0;
@@ -55,6 +47,15 @@ function pick() {
     document.f.score.value++;
     running = 0;
   }
+  // submit highscores to telegram
+  var xmlhttp = new XMLHttpRequest();
+  var url =
+    "https://hangmangame17.herokuapp.com/highscore/" +
+     document.f.score.value +
+    "?id=" +
+    playerID;
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
 }
 
 function new_word(form) {
