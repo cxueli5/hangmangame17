@@ -47,15 +47,6 @@ function pick() {
     document.f.score.value++;
     running = 0;
   }
-  // submit highscores to telegram
-  var xmlhttp = new XMLHttpRequest();
-  var url =
-    "https://hangmangame17.herokuapp.com/highscore/" +
-     document.f.score.value +
-    "?id=" +
-    playerID;
-  xmlhttp.open("GET", url, true);
-  xmlhttp.send();
 }
 
 function new_word(form) {
