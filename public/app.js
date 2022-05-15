@@ -119,13 +119,13 @@ var url =
   "https://hangmangame17.herokuapp.com/highscore/" +
   document.getElementById("scoreDisplayVal").value +
   "?id=" +
-  playerid;
-var sendingText = document.getElementById("sendingText");
-sendingText.style.display = "block";
+  playerID;
+// var sendingText = document.getElementById("scoreDisplay");
+// sendingText.style.display = "block";
 
-xmlhttp.onreadystatechange = function () {
-  sendingText.style.display = "none";
-};
+// xmlhttp.onreadystatechange = function () {
+//   sendingText.style.display = "none";
+// };
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
