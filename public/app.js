@@ -1,8 +1,3 @@
-// telebot codes
-var url = new URL(location.href);
-var playerID = url.searchParams.get("id");
-
-// hangman game codes
 var list1 = new Array(); // list of used letters (correct)
 var list1_index = 0;
 
@@ -13,7 +8,7 @@ var running = 0;
 var failnum = 0;
 var advising = 0;
 
-myStickman = document.getElementById("stickmanCanvas");
+myStickman = document.getElementById("stickman");
 context = myStickman.getContext("2d");
 
 function pick() {
@@ -44,9 +39,7 @@ function pick() {
   if (!blank) {
     // if all letters in list1 matches correct word, i.e. 'blank' remained = 0 for all i
     document.f.tried.value = "   === You Win! ===";
-    scoreVal = document.getElementById("scoreDisplayVal").value;
-    scoreVal++;
-    // document.f.score.value++;
+    document.f.score.value++;
     running = 0;
   }
 }
@@ -113,21 +106,6 @@ function advise(msg) {
     window.setTimeout("document.f.tried.value=savetext; advising=0;", 500);
   }
 }
-
-var xmlhttp = new XMLHttpRequest();
-var url =
-  "https://hangmangame17.herokuapp.com/highscore/" +
-  document.getElementById("scoreDisplayVal").value +
-  "?id=" +
-  playerID;
-// var sendingText = document.getElementById("scoreDisplay");
-// sendingText.style.display = "block";
-
-// xmlhttp.onreadystatechange = function () {
-//   sendingText.style.display = "none";
-// };
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
 
 // call to the functions in drawArray
 var animate = function () {

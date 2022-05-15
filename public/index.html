@@ -1,38 +1,30 @@
 <!DOCTYPE html>
-<!-- Start of HTML -->
-<html>
-  <!-- Start of head -->
+<html lang="en">
   <head>
-    <!-- Meta tag and description -->
+    <title>Group 17</title>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
-    <!-- Styling -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="main.css" />
-    <!-- Script (at bottom) -->
-    <!-- Page TItle -->
-    <title>Hangman Game</title>
   </head>
-  <!-- End of head -->
 
-  <!-- Start of game body -->
-  <body id="gameBody">
-    <!-- Start of actual game (form) -->
-    <form name="f" id="mainGamePage">
-      <!-- Ingame title -->
-      <h1 id="gameName">Hangman demo</h1>
-      <!-- Start of table (Score, No. of Fails, Keypad, Word blanks) -->
-      <table id="gameTable">
-        <!-- Row1 (Score and No. of fails display) -->
+  <div class="jumbotron text-center">
+    <h1>Hangman</h1>
+  </div>
+
+  <form name="f">
+    <div class="container">
+      <table class="table">
         <tr>
-          <!-- Score Display -->
-          <td id="scoreDisplay"class="gameContent" colspan="5">
+          <td colspan="5" align="RIGHT">
             Score:
             <input
-            id="scoreDisplayVal"
-              type="text"
+              type="TEXT"
               name="score"
               value="0"
               onfocus="score.blur();"
@@ -48,7 +40,7 @@
               size="2"
             />
           </td>
-          <td id="startGameBtn" class="gameBtn" colspan="4">
+          <td colspan="4" align="RIGHT">
             <input
               type="BUTTON"
               class="button"
@@ -58,7 +50,7 @@
           </td>
         </tr>
         <tr>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -74,7 +66,7 @@
               onclick="seek('b');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -82,7 +74,7 @@
               onclick="seek('c');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -90,7 +82,7 @@
               onclick="seek('d');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -98,15 +90,15 @@
               onclick="seek('e');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
               value=" f "
               onclick="seek('f');"
             />
-          </td class="gameBtn">
-          <td class="gameBtn">
+          </td>
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -114,7 +106,7 @@
               onclick="seek('g');"
             />
           </td>
-          <td class="gameBtn"> 
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -124,7 +116,7 @@
           </td>
         </tr>
         <tr>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -132,7 +124,7 @@
               onclick="seek('i');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -140,7 +132,7 @@
               onclick="seek('j');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -148,7 +140,7 @@
               onclick="seek('k');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -156,7 +148,7 @@
               onclick="seek('l');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -164,7 +156,7 @@
               onclick="seek('m');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -172,7 +164,7 @@
               onclick="seek('n');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -180,7 +172,7 @@
               onclick="seek('o');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -190,7 +182,7 @@
           </td>
         </tr>
         <tr>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -198,7 +190,7 @@
               onclick="seek('q');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -206,7 +198,7 @@
               onclick="seek('r');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -214,7 +206,7 @@
               onclick="seek('s');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -222,7 +214,7 @@
               onclick="seek('t');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -230,7 +222,7 @@
               onclick="seek('u');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -238,7 +230,7 @@
               onclick="seek('v');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -246,7 +238,7 @@
               onclick="seek('w');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -256,7 +248,7 @@
           </td>
         </tr>
         <tr>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -264,7 +256,7 @@
               onclick="seek('y');"
             />
           </td>
-          <td class="gameBtn">
+          <td>
             <input
               type="BUTTON"
               class="button"
@@ -274,7 +266,7 @@
           </td>
         </tr>
         <tr>
-          <td id="guessWord" class="gameContent" colspan="8">
+          <td colspan="8" align="CENTER">
             <input
               type="TEXT"
               name="word"
@@ -293,12 +285,13 @@
           </td>
         </tr>
       </table>
-      <canvas id="stickmanCanvas">
-        <!-- error msg shown if browser does not support HTML5 canvas tag -->
-        Stickman canvas not showing as browser does not support HTML5 canvas.
-        Try using Chrome instead.
+    </div>
+
+    <center>
+      <canvas id="stickman" width="120px">
+        This Text will show if the Browser does NOT support HTML5 Canvas tag
       </canvas>
       <script src="app.js"></script>
-    </form>
-  </body>
+    </center>
+  </form>
 </html>

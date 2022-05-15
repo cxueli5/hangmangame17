@@ -15,54 +15,15 @@
   color: white;
 }
 
-#mainGamePage {
-  max-width: 500px;
-  margin: auto;
-}
-
-#gameBody {
-  background-color: black;
-}
-
-#gameTable {
-  background-color: #c1d72e;
-  border: none;
-  /* align center */
-  border: none;
-  max-width: 500px;
-  margin: auto;
-}
-
-#gameName {
-  color: yellowgreen;
-  text-align: center;
-}
-
-.gameContent {
-  padding-right: 5px;
-  padding-left: 5px;
-}
-
-#scoreDisplay,
-#startGameBtn {
-  text-align: right;
-  padding-right: 5px;
-}
-
-#guessWord {
-  text-align: center;
-}
-
-#stickmanCanvas {
-  width: "120px";
+#stickman {
   position: relative;
   left: 0px;
   top: 20px;
   background-color: grey;
   border-style: dashed;
   border-color: black;
-  /* align center */
-  border: none;
-  max-width: 500px;
-  margin: auto;
+}
+
+h1 {
+  color: green;
 }
