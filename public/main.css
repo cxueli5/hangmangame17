@@ -1,16 +1,68 @@
 .button {
-    background-color: #4CAF50;
-    /* this will apply current style to anything in html with class="button"*/
-    border: none;
-    color: white;
-    width: 100%;
-    padding: 3px;
-    border-radius: 2px;
-    text-align: center;
-    font-size: 16px;
+  background-color: #4caf50;
+  /* this will apply current style to anything in html with class="button"*/
+  border: none;
+  color: white;
+  width: 100%;
+  padding: 3px;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 16px;
 }
 
 .button:hover {
-    background-color: #08530b;
-    color: white;
+  background-color: #08530b;
+  color: white;
+}
+
+#mainGamePage {
+  max-width: 500px;
+  margin: auto;
+}
+
+#gameBody {
+  background-color: black;
+}
+
+#gameTable {
+  background-color: #c1d72e;
+  border: none;
+  /* align center */
+  border: none;
+  max-width: 500px;
+  margin: auto;
+}
+
+#gameName {
+  color: yellowgreen;
+  text-align: center;
+}
+
+.gameContent {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+#scoreDisplay,
+#startGameBtn {
+  text-align: right;
+  padding-right: 5px;
+}
+
+#guessWord {
+  text-align: center;
+}
+
+#stickmanCanvas {
+  width: "120px";
+  position: relative;
+  left: 0px;
+  top: 20px;
+  background-color: grey;
+  border-style: dashed;
+  border-color: black;
+  /* align center */
+  border: none;
+  max-width: 500px;
+  margin: auto;
 }

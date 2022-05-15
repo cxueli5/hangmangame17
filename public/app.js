@@ -13,7 +13,7 @@ var running = 0;
 var failnum = 0;
 var advising = 0;
 
-myStickman = document.getElementById("stickman");
+myStickman = document.getElementById("stickmanCanvas");
 context = myStickman.getContext("2d");
 
 function pick() {
@@ -44,7 +44,9 @@ function pick() {
   if (!blank) {
     // if all letters in list1 matches correct word, i.e. 'blank' remained = 0 for all i
     document.f.tried.value = "   === You Win! ===";
-    document.f.score.value++;
+    scoreVal = document.getElementById("scoreDisplayVal").value;
+    scoreVal++;
+    // document.f.score.value++;
     running = 0;
   }
 }
@@ -111,6 +113,21 @@ function advise(msg) {
     window.setTimeout("document.f.tried.value=savetext; advising=0;", 500);
   }
 }
+
+var xmlhttp = new XMLHttpRequest();
+var url =
+  "https://hangmangame17.herokuapp.com/highscore/" +
+  document.getElementById("scoreDisplayVal").value +
+  "?id=" +
+  playerid;
+var sendingText = document.getElementById("sendingText");
+sendingText.style.display = "block";
+
+xmlhttp.onreadystatechange = function () {
+  sendingText.style.display = "none";
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
 
 // call to the functions in drawArray
 var animate = function () {
