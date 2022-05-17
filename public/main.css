@@ -1,3 +1,11 @@
+/* Global Styles */
+
+/* Whole HTML */
+html * {
+  font-family: Arial !important;
+}
+
+/* Button Style (For all button class) */
 .button {
   background-color: #4caf50;
   /* this will apply current style to anything in html with class="button"*/
@@ -10,11 +18,36 @@
   font-size: 16px;
 }
 
+/* Button Hover Over */
 .button:hover {
   background-color: #08530b;
   color: white;
 }
 
+h1 {
+  color: green;
+}
+
+/* End of Global Styles */
+
+/* Game Button */
+#gameBtn {
+  padding-top: 40px;
+}
+
+/* Score Display */
+#gameScore {
+  padding-top: 30px;
+  width: 40%;
+  text-align: right;
+}
+
+/* Word and Message Display */
+#wordDisplay {
+  text-align: center;
+}
+
+/* Stickman Canvas */
 #stickman {
   position: relative;
   left: 0px;
@@ -22,8 +55,4 @@
   background-color: grey;
   border-style: dashed;
   border-color: black;
-}
-
-h1 {
-  color: green;
 }

@@ -1,22 +1,28 @@
-// use telegram bot api
+// telegram bot script
+
+// use to interact with telegram bot api
 const express = require("express");
 const path = require("path");
 const TelegramBot = require("node-telegram-bot-api");
 
-// get unique TOKEN generated from telebot botfather
+// get unique TOKEN generated from telebot @BotFather
 const TOKEN = "5312948605:AAErfcYzKZDrbYmxKaBuzbP3XVN6N-Dv3c8";
 
-// create new telegram bot
+// initalise server for telegram bot
 const server = express();
+// create new telegram bot
 const bot = new TelegramBot(TOKEN, { polling: true });
 // server port number
 const port = process.env.PORT || 5000;
-// game name as set through botfather on telebot (for /newgame)
+// game name as set through BotFather on telebot (for /newgame)
 const gameName = "hangman17";
 
 const queries = {};
 
-// help command to show information to users on how game is played
+// contents of public directory available as static files
+server.use(express.static(path.join(__dirname, 'public')));
+
+// (/help) command to show information to users on how game is played
 bot.onText(/help/, (msg) =>
   bot.sendMessage(
     msg.from.id,
@@ -24,8 +30,10 @@ bot.onText(/help/, (msg) =>
   )
 );
 
-// start game command
+// start game command (use /start or /leggo)
 bot.onText(/start|leggo/, (msg) => bot.sendGame(msg.from.id, gameName));
+
+// get game from heroku (game web app is deployed via heroku)
 bot.on("callback_query", function (query) {
   if (query.game_short_name !== gameName) {
     bot.answerCallbackQuery(
@@ -43,43 +51,5 @@ bot.on("callback_query", function (query) {
   }
 });
 
-bot.on("inline_query", function (iq) {
-  bot.answerInlineQuery(iq.id, [
-    { type: "game", id: "0", game_short_name: gameName },
-  ]);
-});
-
-server.use(express.static(path.join(__dirname, "public")));
-
-bot.on("inline_query", function (iq) {
-  bot.answerInlineQuery(iq.id, [
-    { type: "game", id: "0", game_short_name: gameName },
-  ]);
-});
-
-server.use(express.static(path.join(__dirname, "public")));
-
-server.get("/highscore/:score", function (req, res, next) {
-  if (!Object.hasOwnProperty.call(queries, req.query.id)) return next();
-  let query = queries[req.query.id];
-  let options;
-  if (query.message) {
-    options = {
-      chat_id: query.message.chat.id,
-      message_id: query.message.message_id,
-    };
-  } else {
-    options = {
-      inline_message_id: query.inline_message_id,
-    };
-  }
-  bot.setGameScore(
-    query.from.id,
-    parseInt(req.params.score),
-    options,
-    function (err, result) {}
-  );
-});
-
-// listen to server port 5000
+// server listen to port 5000
 server.listen(port);

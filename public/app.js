@@ -1,16 +1,23 @@
-var list1 = new Array(); // list of used letters (correct)
+// main app script
+
+// list of correct used letters
+var list1 = new Array();
 var list1_index = 0;
 
-var list2 = new Array(); // list of used letters (all)
+// list of all used letters
+var list2 = new Array();
 var list2_index = 0;
 
+// intialised variables
 var running = 0;
 var failnum = 0;
 var advising = 0;
 
+// stickman initalised variables
 myStickman = document.getElementById("stickman");
 context = myStickman.getContext("2d");
 
+// function to match user choice of letter and word generated
 function pick() {
   var choice = "";
   var blank = 0;
@@ -18,7 +25,7 @@ function pick() {
   for (i = 0; i < words[index].length; i++) {
     t = 0;
     if (list1_index >= 0)
-      // first time click go dunnid check if have any matching letters.
+      // first time click 'Go' button, don't need to check if have matching letters
       for (j = 0; j <= list1_index; j++)
         if (
           words[index].charAt(i) == list1[j] ||
@@ -34,16 +41,18 @@ function pick() {
     }
   }
 
-  document.f.word.value = choice; // display this onto the top middle bar
+  // display word in blanks
+  document.f.word.value = choice;
 
   if (!blank) {
-    // if all letters in list1 matches correct word, i.e. 'blank' remained = 0 for all i
+    // if all letters in list1 (correct used letter list) matches word, 'blank' remains 0 for all i
     document.f.tried.value = "   === You Win! ===";
     document.f.score.value++;
     running = 0;
   }
 }
 
+// function to generate new word from array
 function new_word(form) {
   if (!running) {
     running = 1;
@@ -59,6 +68,7 @@ function new_word(form) {
   } else advise("A word is already in play!");
 }
 
+// function to check user Choice of letter on keyboard
 function seek(letter) {
   if (!running) advise(".....Click GO to start !");
   else {
@@ -86,7 +96,9 @@ function seek(letter) {
         list1[list1_index] = letter; // add it to list of used letters (correct)
       } else failnum++;
 
+      // check number of fails
       document.f.lives.value = failnum;
+      // number of fails reached limit
       if (failnum == 8) {
         document.f.tried.value = "the man has been hanged!!!";
         document.f.word.value = words[index]; // give user the correct word
@@ -94,10 +106,11 @@ function seek(letter) {
         running = 0;
       } else pick();
       animate();
-    } else advise("Letter " + letter + " is already used!");
+    } else advise("Letter " + letter + " is already used!"); // if letter has been clicked by user on keyboard before
   }
 }
 
+// display message
 function advise(msg) {
   if (!advising) {
     advising = -1;
@@ -106,6 +119,8 @@ function advise(msg) {
     window.setTimeout("document.f.tried.value=savetext; advising=0;", 500);
   }
 }
+
+// stickman codes
 
 // call to the functions in drawArray
 var animate = function () {
@@ -118,12 +133,14 @@ canvas = function () {
   context.lineWidth = 2;
 };
 
+// draw stickman head
 head = function () {
   context.beginPath();
   context.arc(60, 25, 10, 0, Math.PI * 2, true);
   context.stroke();
 };
 
+// draw body, limbs, stand to hang the stickman
 draw = function ($pathFromx, $pathFromy, $pathTox, $pathToy) {
   context.beginPath(); // impt ~
   context.moveTo($pathFromx, $pathFromy);
@@ -131,6 +148,7 @@ draw = function ($pathFromx, $pathFromy, $pathTox, $pathToy) {
   context.stroke();
 };
 
+// stand to hang the stickman
 frame2 = function () {
   draw(10, 0, 10, 600);
 };
@@ -143,6 +161,7 @@ frame4 = function () {
   draw(60, 5, 60, 15);
 };
 
+// stickman lower body parts
 torso = function () {
   draw(60, 36, 60, 70);
 };
@@ -159,8 +178,11 @@ leftLeg = function () {
   draw(60, 70, 20, 100);
 };
 
+// no stickman drawn
+
 nothing = function () {};
 
+// array of elements to draw hangman
 drawArray = [
   nothing,
   rightLeg,
@@ -173,6 +195,7 @@ drawArray = [
   frame2,
 ];
 
+// array of words that are used to guess
 var words = new Array(
   "canidae",
   "felidae",

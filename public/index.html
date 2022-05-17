@@ -1,27 +1,41 @@
 <!DOCTYPE html>
+<!-- Start of HTML -->
 <html lang="en">
+  <!-- Start of Head -->
   <head>
-    <title>Group 17</title>
+    <!-- Game Title Header (In Website Tab) -->
+    <title>Hangman Game Group 17</title>
+    <!-- Meta Tag and Description -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Styling -->
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
+    <!-- Main Style -->
+    <link rel="stylesheet" href="main.css" />
+    <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="main.css" />
   </head>
+  <!-- End of Head -->
 
+  <!-- Start of Body -->
+  <!-- Game Title (In Website) -->
   <div class="jumbotron text-center">
     <h1>Hangman</h1>
   </div>
-
+  <!-- Start of Game -->
   <form name="f">
+    <!-- Start of Game Container -->
     <div class="container">
+      <!-- Start of Display Table -->
       <table class="table">
+        <!-- Row 1 (Display Game Score and No. of Fails) -->
         <tr>
-          <td colspan="5" align="RIGHT">
+          <td id="gameScore" colspan="5">
+            <!-- Score Display -->
             Score:
             <input
               type="TEXT"
@@ -30,8 +44,10 @@
               onfocus="score.blur();"
               size="2"
             />
+            <!-- End of Score Display -->
             <br />
-            Fails (8=Die):
+            <!-- No. of Fails -->
+            Fails (8 = Lose):
             <input
               type="TEXT"
               name="lives"
@@ -39,8 +55,11 @@
               onfocus="lives.blur();"
               size="2"
             />
+            <!-- End of No. of Fails -->
           </td>
-          <td colspan="4" align="RIGHT">
+
+          <!-- Start Game Button -->
+          <td id="gameBtn" colspan="4">
             <input
               type="BUTTON"
               class="button"
@@ -49,7 +68,14 @@
             />
           </td>
         </tr>
+        <!-- End of Row 1 -->
+      </table>
+      <!-- End of Display Table -->
+      <!-- Start of Keyboard Table -->
+      <table class="table">
+        <!-- Row 2 (Keyboard Buttons) -->
         <tr>
+          <!-- Button (a) -->
           <td>
             <input
               type="BUTTON"
@@ -58,6 +84,7 @@
               onclick="seek('a');"
             />
           </td>
+          <!-- Button (b) -->
           <td>
             <input
               type="BUTTON"
@@ -66,6 +93,7 @@
               onclick="seek('b');"
             />
           </td>
+          <!-- Button (c) -->
           <td>
             <input
               type="BUTTON"
@@ -74,6 +102,7 @@
               onclick="seek('c');"
             />
           </td>
+          <!-- Button (d) -->
           <td>
             <input
               type="BUTTON"
@@ -82,6 +111,7 @@
               onclick="seek('d');"
             />
           </td>
+          <!-- Button (e) -->
           <td>
             <input
               type="BUTTON"
@@ -90,6 +120,7 @@
               onclick="seek('e');"
             />
           </td>
+          <!-- Button (f) -->
           <td>
             <input
               type="BUTTON"
@@ -98,6 +129,7 @@
               onclick="seek('f');"
             />
           </td>
+          <!-- Button (g) -->
           <td>
             <input
               type="BUTTON"
@@ -106,6 +138,7 @@
               onclick="seek('g');"
             />
           </td>
+          <!-- Button (h) -->
           <td>
             <input
               type="BUTTON"
@@ -115,7 +148,10 @@
             />
           </td>
         </tr>
+        <!-- End of Row 2 -->
+        <!-- Row 3 (Keyboard Buttons) -->
         <tr>
+          <!-- Button (i) -->
           <td>
             <input
               type="BUTTON"
@@ -124,6 +160,7 @@
               onclick="seek('i');"
             />
           </td>
+          <!-- Button (j) -->
           <td>
             <input
               type="BUTTON"
@@ -132,6 +169,7 @@
               onclick="seek('j');"
             />
           </td>
+          <!-- Button (k) -->
           <td>
             <input
               type="BUTTON"
@@ -140,6 +178,7 @@
               onclick="seek('k');"
             />
           </td>
+          <!-- Button (l) -->
           <td>
             <input
               type="BUTTON"
@@ -148,6 +187,7 @@
               onclick="seek('l');"
             />
           </td>
+          <!-- Button (m) -->
           <td>
             <input
               type="BUTTON"
@@ -156,6 +196,7 @@
               onclick="seek('m');"
             />
           </td>
+          <!-- Button (n) -->
           <td>
             <input
               type="BUTTON"
@@ -164,6 +205,7 @@
               onclick="seek('n');"
             />
           </td>
+          <!-- Button (o) -->
           <td>
             <input
               type="BUTTON"
@@ -172,6 +214,7 @@
               onclick="seek('o');"
             />
           </td>
+          <!-- Button (p) -->
           <td>
             <input
               type="BUTTON"
@@ -181,7 +224,10 @@
             />
           </td>
         </tr>
+        <!-- End of Row 3 -->
+        <!-- Row 4 (Keyboard Button) -->
         <tr>
+          <!-- Button (q) -->
           <td>
             <input
               type="BUTTON"
@@ -190,6 +236,7 @@
               onclick="seek('q');"
             />
           </td>
+          <!-- Button (r) -->
           <td>
             <input
               type="BUTTON"
@@ -198,6 +245,7 @@
               onclick="seek('r');"
             />
           </td>
+          <!-- Button (s) -->
           <td>
             <input
               type="BUTTON"
@@ -206,6 +254,7 @@
               onclick="seek('s');"
             />
           </td>
+          <!-- Button (t) -->
           <td>
             <input
               type="BUTTON"
@@ -214,6 +263,7 @@
               onclick="seek('t');"
             />
           </td>
+          <!-- Button (u) -->
           <td>
             <input
               type="BUTTON"
@@ -222,6 +272,7 @@
               onclick="seek('u');"
             />
           </td>
+          <!-- Button (v) -->
           <td>
             <input
               type="BUTTON"
@@ -230,6 +281,7 @@
               onclick="seek('v');"
             />
           </td>
+          <!-- Button (w) -->
           <td>
             <input
               type="BUTTON"
@@ -238,6 +290,7 @@
               onclick="seek('w');"
             />
           </td>
+          <!-- Button (x) -->
           <td>
             <input
               type="BUTTON"
@@ -247,7 +300,10 @@
             />
           </td>
         </tr>
+        <!-- End of Row 4 -->
+        <!-- Row 5 (Keyboard Buttons) -->
         <tr>
+          <!-- Button (y) -->
           <td>
             <input
               type="BUTTON"
@@ -256,6 +312,7 @@
               onclick="seek('y');"
             />
           </td>
+          <!-- Button (z) -->
           <td>
             <input
               type="BUTTON"
@@ -265,8 +322,14 @@
             />
           </td>
         </tr>
+        <!-- End of Row 5 -->
+      </table>
+      <!-- End of Keyboard Table -->
+      <!-- Start of Word and Message Display Table -->
+      <table class="table">
         <tr>
-          <td colspan="8" align="CENTER">
+          <td id="wordDisplay" colspan="8">
+            <!-- Word Blanks Display -->
             <input
               type="TEXT"
               name="word"
@@ -274,7 +337,9 @@
               onfocus="word.blur();"
               size="25"
             />
+            <!-- End of Word Blanks Display -->
             <br />
+            <!-- Message Display -->
             <input
               type="TEXT"
               name="tried"
@@ -282,16 +347,25 @@
               onfocus="tried.blur();"
               size="25"
             />
+            <!-- End of Message Display -->
           </td>
         </tr>
       </table>
+      <!-- End of Word and Message Display Table -->
     </div>
+    <!-- End of Game Container -->
 
+    <!-- Stickman Drawing Canvas -->
     <center>
-      <canvas id="stickman" width="120px">
-        This Text will show if the Browser does NOT support HTML5 Canvas tag
+      <canvas id="stickman">
+        <!-- Error Msg Shown if Browser Does Not Support HTML5 Canvas Tag -->
+        Stickman canvas not showing as browser does not support HTML5 canvas.
+        Try using Chrome instead.
       </canvas>
+      <!-- Main Script -->
       <script src="app.js"></script>
     </center>
   </form>
+  <!-- End of Game -->
 </html>
+<!-- End of HTML -->
