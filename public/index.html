@@ -19,8 +19,6 @@
     <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!--Sound Effect-->
-    <audio id="audioGo" src="http://thecyberbuddy.com/sounds/frog.wav"></audio>
   </head>
   <!-- End of Head -->
 
@@ -72,10 +70,11 @@
 
           <!-- Start Game Button -->
           <td id="gameBtn" colspan="4">
+            <!-- onclick evennt = generate new word and play frog sound effect -->
             <input
               type="BUTTON"
               class="button"
-              onclick="new_word(this.form);"
+              onclick="new_word(this.form); playSound('http://thecyberbuddy.com/sounds/frog.wav');"
               value=" GO "
             />
           </td>

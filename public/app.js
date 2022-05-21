@@ -17,6 +17,11 @@ var advising = 0;
 myStickman = document.getElementById("stickman");
 context = myStickman.getContext("2d");
 
+// play frog sound effect audio
+function playSound(url) {
+  new Audio(url).play();
+}
+
 // function to match user choice of letter and word generated
 function pick() {
   var choice = "";
