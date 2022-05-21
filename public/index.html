@@ -2,6 +2,7 @@
 <!-- Start of HTML -->
 <html lang="en">
   <!-- Start of Head -->
+
   <head>
     <!-- Game Title Header (In Website Tab) -->
     <title>Hangman Game Group 17</title>
@@ -18,13 +19,24 @@
     <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--Sound Effect-->
+    <audio id="audioGo" src="http://thecyberbuddy.com/sounds/frog.wav"></audio>
   </head>
   <!-- End of Head -->
 
   <!-- Start of Body -->
   <!-- Game Title (In Website) -->
   <div class="jumbotron text-center">
-    <h1>Hangman</h1>
+    <h1>HANGMAN <br /></h1>
+    <p>
+      Guess The Animal!
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/3069/3069172.png"
+        alt="Koala icon"
+        width="50"
+        height="50"
+      />
+    </p>
   </div>
   <!-- Start of Game -->
   <form name="f">
@@ -333,7 +345,7 @@
             <input
               type="TEXT"
               name="word"
-              value="              --- Hangman ---"
+              value="               --- Hangman ---"
               onfocus="word.blur();"
               size="25"
             />
@@ -343,7 +355,7 @@
             <input
               type="TEXT"
               name="tried"
-              value="        Click GO to get a word"
+              value="         Click GO to get a word"
               onfocus="tried.blur();"
               size="25"
             />
@@ -356,15 +368,18 @@
     <!-- End of Game Container -->
 
     <!-- Stickman Drawing Canvas -->
-    <center>
-      <canvas id="stickman">
-        <!-- Error Msg Shown if Browser Does Not Support HTML5 Canvas Tag -->
-        Stickman canvas not showing as browser does not support HTML5 canvas.
-        Try using Chrome instead.
-      </canvas>
-      <!-- Main Script -->
-      <script src="app.js"></script>
-    </center>
+    <div>
+      <center>
+        <canvas id="stickman" width="120" height="150">
+          <!-- Error Msg Shown if Browser Does Not Support HTML5 Canvas Tag -->
+          Stickman canvas not showing as browser does not support HTML5 canvas.
+          Try using Chrome instead.
+        </canvas>
+        <!-- Main Script -->
+        <script src="app.js"></script>
+      </center>
+      <br /><br />
+    </div>
   </form>
   <!-- End of Game -->
 </html>
