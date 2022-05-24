@@ -68,6 +68,10 @@ input[type="TEXT"] {
   margin-bottom: 3px;
 }
 
+.footer {
+  padding: 30px;
+}
+
 /* end of global styles */
 
 /* dark-mode toggle */
