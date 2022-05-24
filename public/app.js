@@ -1,5 +1,12 @@
 // main app script
 
+// dark mode toggle
+function darkMode() {
+  var element = document.getElementById("displayText");
+  element.classList.toggle("darkModeText");
+  var element2 = document.getElementById("displayText2");
+  element2.classList.toggle("darkModeText");
+}
 // list of correct used letters
 var list1 = new Array();
 var list1_index = 0;

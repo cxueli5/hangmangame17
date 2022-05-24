@@ -2,7 +2,6 @@
 <!-- Start of HTML -->
 <html lang="en">
   <!-- Start of Head -->
-
   <head>
     <!-- Game Title Header (In Website Tab) -->
     <title>Hangman Game Group 17</title>
@@ -14,6 +13,16 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    />
+    <!-- Bootstrap Font Icon CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
     <!-- Main Style -->
     <link rel="stylesheet" href="main.css" />
     <!-- Script -->
@@ -21,365 +30,371 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
   <!-- End of Head -->
-
   <!-- Start of Body -->
-  <!-- Game Title (In Website) -->
-  <div class="jumbotron text-center">
-    <h1>HANGMAN <br /></h1>
-    <p>
-      Guess The Animal!
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/3069/3069172.png"
-        alt="Koala icon"
-        width="50"
-        height="50"
-      />
-    </p>
-  </div>
-  <!-- Start of Game -->
-  <form name="f">
-    <!-- Start of Game Container -->
-    <div class="container">
-      <!-- Start of Display Table -->
-      <table class="table">
-        <!-- Row 1 (Display Game Score and No. of Fails) -->
-        <tr>
-          <td id="gameScore" colspan="5">
-            <!-- Score Display -->
-            Score:
-            <input
-              type="TEXT"
-              name="score"
-              value="0"
-              onfocus="score.blur();"
-              size="2"
-            />
-            <!-- End of Score Display -->
-            <br />
-            <!-- No. of Fails -->
-            Fails (8 = Lose):
-            <input
-              type="TEXT"
-              name="lives"
-              value="0"
-              onfocus="lives.blur();"
-              size="2"
-            />
-            <!-- End of No. of Fails -->
-          </td>
-
-          <!-- Start Game Button -->
-          <td id="gameBtn" colspan="4">
-            <!-- onclick evennt = generate new word and play frog sound effect -->
-            <input
-              type="BUTTON"
-              class="button"
-              onclick="new_word(this.form); playSound('frog.wav');"
-              value=" GO "
-            />
-          </td>
-        </tr>
-        <!-- End of Row 1 -->
-      </table>
-      <!-- End of Display Table -->
-      <!-- Start of Keyboard Table -->
-      <table class="table">
-        <!-- Row 2 (Keyboard Buttons) -->
-        <tr>
-          <!-- Button (a) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" a "
-              onclick="seek('a');"
-            />
-          </td>
-          <!-- Button (b) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" b "
-              onclick="seek('b');"
-            />
-          </td>
-          <!-- Button (c) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" c "
-              onclick="seek('c');"
-            />
-          </td>
-          <!-- Button (d) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" d "
-              onclick="seek('d');"
-            />
-          </td>
-          <!-- Button (e) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" e "
-              onclick="seek('e');"
-            />
-          </td>
-          <!-- Button (f) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" f "
-              onclick="seek('f');"
-            />
-          </td>
-          <!-- Button (g) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" g "
-              onclick="seek('g');"
-            />
-          </td>
-          <!-- Button (h) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" h "
-              onclick="seek('h');"
-            />
-          </td>
-        </tr>
-        <!-- End of Row 2 -->
-        <!-- Row 3 (Keyboard Buttons) -->
-        <tr>
-          <!-- Button (i) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" i "
-              onclick="seek('i');"
-            />
-          </td>
-          <!-- Button (j) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" j "
-              onclick="seek('j');"
-            />
-          </td>
-          <!-- Button (k) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" k "
-              onclick="seek('k');"
-            />
-          </td>
-          <!-- Button (l) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" l "
-              onclick="seek('l');"
-            />
-          </td>
-          <!-- Button (m) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" m "
-              onclick="seek('m');"
-            />
-          </td>
-          <!-- Button (n) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" n "
-              onclick="seek('n');"
-            />
-          </td>
-          <!-- Button (o) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" o "
-              onclick="seek('o');"
-            />
-          </td>
-          <!-- Button (p) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" p "
-              onclick="seek('p');"
-            />
-          </td>
-        </tr>
-        <!-- End of Row 3 -->
-        <!-- Row 4 (Keyboard Button) -->
-        <tr>
-          <!-- Button (q) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" q "
-              onclick="seek('q');"
-            />
-          </td>
-          <!-- Button (r) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" r "
-              onclick="seek('r');"
-            />
-          </td>
-          <!-- Button (s) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" s "
-              onclick="seek('s');"
-            />
-          </td>
-          <!-- Button (t) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" t "
-              onclick="seek('t');"
-            />
-          </td>
-          <!-- Button (u) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" u "
-              onclick="seek('u');"
-            />
-          </td>
-          <!-- Button (v) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" v "
-              onclick="seek('v');"
-            />
-          </td>
-          <!-- Button (w) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" w "
-              onclick="seek('w');"
-            />
-          </td>
-          <!-- Button (x) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" x "
-              onclick="seek('x');"
-            />
-          </td>
-        </tr>
-        <!-- End of Row 4 -->
-        <!-- Row 5 (Keyboard Buttons) -->
-        <tr>
-          <!-- Button (y) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" y "
-              onclick="seek('y');"
-            />
-          </td>
-          <!-- Button (z) -->
-          <td>
-            <input
-              type="BUTTON"
-              class="button"
-              value=" z "
-              onclick="seek('z');"
-            />
-          </td>
-        </tr>
-        <!-- End of Row 5 -->
-      </table>
-      <!-- End of Keyboard Table -->
-      <!-- Start of Word and Message Display Table -->
-      <table class="table">
-        <tr>
-          <td id="wordDisplay" colspan="8">
-            <!-- Word Blanks Display -->
-            <input
-              type="TEXT"
-              name="word"
-              value="               --- Hangman ---"
-              onfocus="word.blur();"
-              size="25"
-            />
-            <!-- End of Word Blanks Display -->
-            <br />
-            <!-- Message Display -->
-            <input
-              type="TEXT"
-              name="tried"
-              value="         Click GO to get a word"
-              onfocus="tried.blur();"
-              size="25"
-            />
-            <!-- End of Message Display -->
-          </td>
-        </tr>
-      </table>
-      <!-- End of Word and Message Display Table -->
+  <body>
+    <!-- Game Title (In Website) -->
+    <div class="jumbotron text-center">
+      <h1>HANGMAN <br /></h1>
+      <p>
+        Guess The Animal!
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3069/3069172.png"
+          alt="Koala icon"
+          width="50"
+          height="50"
+        />
+      </p>
     </div>
-    <!-- End of Game Container -->
-
-    <!-- Stickman Drawing Canvas -->
-    <div>
-      <center>
-        <canvas id="stickman" width="120" height="150">
-          <!-- Error Msg Shown if Browser Does Not Support HTML5 Canvas Tag -->
-          Stickman canvas not showing as browser does not support HTML5 canvas.
-          Try using Chrome instead.
-        </canvas>
-        <!-- Main Script -->
-        <script src="app.js"></script>
-      </center>
-      <br /><br />
+    <!-- Dark Mode Switch -->
+    <input type="checkbox" id="toggle" class="toggle-check" onclick="darkMode()" />
+    <label for="toggle" class="toggle-label">
+      <span class="toggle-label-background"></span>
+    </label>
+    <!-- Start of Game -->
+    <div class="background">
+      <form name="f">
+        <!-- Start of Game Container -->
+        <div class="container">
+          <!-- Start of Display Table -->
+          <table class="table">
+            <!-- Row 1 (Display Game Score and No. of Fails) -->
+            <tr>
+              <td id="gameScore" colspan="5">
+                <!-- Score Display -->
+                <p id="displayText" class="displayText">Score:</p>
+                <input
+                  type="TEXT"
+                  name="score"
+                  value="0"
+                  onfocus="score.blur();"
+                  size="2"
+                />
+                <!-- End of Score Display -->
+                <br />
+                <!-- No. of Fails -->
+                <p id="displayText2" class="displayText">Fails:</p>
+                <input
+                  type="TEXT"
+                  name="lives"
+                  value="0"
+                  onfocus="lives.blur();"
+                  size="2"
+                />
+                <!-- End of No. of Fails -->
+              </td>
+              <!-- Start Game Button -->
+              <td id="gameBtn" colspan="4">
+                <!-- onclick evennt = generate new word and play frog sound effect -->
+                <input
+                  type="BUTTON"
+                  class="button"
+                  onclick="new_word(this.form); playSound('frog.wav');"
+                  value=" GO "
+                />
+              </td>
+            </tr>
+            <!-- End of Row 1 -->
+          </table>
+          <!-- End of Display Table -->
+          <!-- Start of Keyboard Table -->
+          <table class="table">
+            <!-- Row 2 (Keyboard Buttons) -->
+            <tr>
+              <!-- Button (a) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" a "
+                  onclick="seek('a');"
+                />
+              </td>
+              <!-- Button (b) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" b "
+                  onclick="seek('b');"
+                />
+              </td>
+              <!-- Button (c) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" c "
+                  onclick="seek('c');"
+                />
+              </td>
+              <!-- Button (d) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" d "
+                  onclick="seek('d');"
+                />
+              </td>
+              <!-- Button (e) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" e "
+                  onclick="seek('e');"
+                />
+              </td>
+              <!-- Button (f) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" f "
+                  onclick="seek('f');"
+                />
+              </td>
+              <!-- Button (g) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" g "
+                  onclick="seek('g');"
+                />
+              </td>
+              <!-- Button (h) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" h "
+                  onclick="seek('h');"
+                />
+              </td>
+            </tr>
+            <!-- End of Row 2 -->
+            <!-- Row 3 (Keyboard Buttons) -->
+            <tr>
+              <!-- Button (i) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" i "
+                  onclick="seek('i');"
+                />
+              </td>
+              <!-- Button (j) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" j "
+                  onclick="seek('j');"
+                />
+              </td>
+              <!-- Button (k) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" k "
+                  onclick="seek('k');"
+                />
+              </td>
+              <!-- Button (l) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" l "
+                  onclick="seek('l');"
+                />
+              </td>
+              <!-- Button (m) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" m "
+                  onclick="seek('m');"
+                />
+              </td>
+              <!-- Button (n) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" n "
+                  onclick="seek('n');"
+                />
+              </td>
+              <!-- Button (o) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" o "
+                  onclick="seek('o');"
+                />
+              </td>
+              <!-- Button (p) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" p "
+                  onclick="seek('p');"
+                />
+              </td>
+            </tr>
+            <!-- End of Row 3 -->
+            <!-- Row 4 (Keyboard Button) -->
+            <tr>
+              <!-- Button (q) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" q "
+                  onclick="seek('q');"
+                />
+              </td>
+              <!-- Button (r) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" r "
+                  onclick="seek('r');"
+                />
+              </td>
+              <!-- Button (s) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" s "
+                  onclick="seek('s');"
+                />
+              </td>
+              <!-- Button (t) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" t "
+                  onclick="seek('t');"
+                />
+              </td>
+              <!-- Button (u) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" u "
+                  onclick="seek('u');"
+                />
+              </td>
+              <!-- Button (v) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" v "
+                  onclick="seek('v');"
+                />
+              </td>
+              <!-- Button (w) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" w "
+                  onclick="seek('w');"
+                />
+              </td>
+              <!-- Button (x) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" x "
+                  onclick="seek('x');"
+                />
+              </td>
+            </tr>
+            <!-- End of Row 4 -->
+            <!-- Row 5 (Keyboard Buttons) -->
+            <tr>
+              <!-- Button (y) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" y "
+                  onclick="seek('y');"
+                />
+              </td>
+              <!-- Button (z) -->
+              <td>
+                <input
+                  type="BUTTON"
+                  class="button"
+                  value=" z "
+                  onclick="seek('z');"
+                />
+              </td>
+            </tr>
+            <!-- End of Row 5 -->
+          </table>
+          <!-- End of Keyboard Table -->
+          <!-- Start of Word and Message Display Table -->
+          <table class="table">
+            <tr>
+              <td id="wordDisplay" colspan="8">
+                <!-- Word Blanks Display -->
+                <input
+                  type="TEXT"
+                  name="word"
+                  value="               --- Hangman ---"
+                  onfocus="word.blur();"
+                  size="25"
+                />
+                <!-- End of Word Blanks Display -->
+                <br />
+                <!-- Message Display -->
+                <input
+                  type="TEXT"
+                  name="tried"
+                  value="         Click GO to get a word"
+                  onfocus="tried.blur();"
+                  size="25"
+                />
+                <!-- End of Message Display -->
+              </td>
+            </tr>
+          </table>
+          <!-- End of Word and Message Display Table -->
+        </div>
+        <!-- End of Game Container -->
+        <!-- Stickman Drawing Canvas -->
+        <div>
+          <center>
+            <canvas id="stickman" width="120" height="150">
+              <!-- Error Msg Shown if Browser Does Not Support HTML5 Canvas Tag -->
+              Stickman canvas not showing as browser does not support HTML5
+              canvas. Try using Chrome instead.
+            </canvas>
+            <!-- Main Script -->
+            <script src="app.js"></script>
+          </center>
+          <br /><br />
+        </div>
+      </form>
     </div>
-  </form>
-  <!-- End of Game -->
+    <!-- End of Game -->
+  </body>
 </html>
 <!-- End of HTML -->
