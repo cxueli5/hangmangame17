@@ -2,7 +2,7 @@
 
 /* whole HTML */
 html * {
-  font-family: "Comic Sans MS", "Comic Sans", cursive !important;
+  font-family: "Comic Sans MS", "Comic Sans";
 }
 
 /* body light mode */
@@ -133,12 +133,10 @@ input[type="TEXT"] {
   background: #292929;
 }
 
+/* change text colour in dark mode */
 .darkModeText{
   color: white;
 }
-/* .toggle-check:checked + .displayText {
-  background: white;
-} */
 
 /* switch slider change to dark mode design */
 .toggle-check:checked + .toggle-label {
