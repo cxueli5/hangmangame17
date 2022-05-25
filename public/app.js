@@ -82,6 +82,7 @@ function new_word(form) {
 
 // function to check user Choice of letter on keyboard
 function seek(letter) {
+  stopRunning = true
   if (!running) advise(".....Click GO to start !");
   else {
     t = 0;
@@ -139,6 +140,48 @@ var animate = function () {
   drawArray[failnum]();
 };
 
+// bouncing hangman canvas (sort of incomplete because its meant to cause the canvas to oscillate only when the hangman appears)
+hangmanBounce = function() {
+  const AMPLITUDE = 3;
+
+  function degToRad(deg) {
+    return deg * (Math.PI/180);
+   }
+
+  function render(frame) {
+    const rad = degToRad(frame * 10);
+    const cosY = Math.cos(rad) * AMPLITUDE;
+
+    document.getElementById("stickman").style.transform = `translate(${cosY}px)`;
+  }
+
+  function frameLoop() {
+    const FPS = 20;
+    let prevTick = 0, firstTick;
+  
+    window.requestAnimationFrame(function loop() {
+      window.requestAnimationFrame(loop);
+      let nowTick = Math.round(FPS * performance.now() / 1000);
+  
+    // Get first tick
+      if (!firstTick) {
+        firstTick = nowTick;
+      }
+
+    // If tick has not changed, ignore
+      if (nowTick === prevTick) {
+        return;
+      }
+
+      prevTick = nowTick;
+      const frame = nowTick - firstTick;
+
+      render(frame);
+    });
+  }
+  frameLoop()
+  }
+hangmanBounce()
 // drawing functions
 canvas = function () {
   context.beginPath(); // call to end previous path. IMPORTANT

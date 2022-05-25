@@ -35,8 +35,13 @@ body {
 
 /* button Hover Over */
 .button:hover {
-  background-color: #08530b;
-  color: white;
+    background-color: #08530b;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    box-shadow: 2px 4px #888;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out, border-radius 0.2s linear, box-shadow 0.3s ease;
 }
 
 /* text style */
@@ -66,10 +71,6 @@ input[type="TEXT"] {
   background-color: #ccf4ce;
   border-radius: 4px;
   margin-bottom: 3px;
-}
-
-.footer {
-  padding: 30px;
 }
 
 /* end of global styles */
