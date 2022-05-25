@@ -35,11 +35,11 @@ npm install express --savenpm install node-telegram-bot-api --save
 
 ## Authors
 
-Xue Li
-Judy
-Jiaen
-Darryl
-Jalen
+* Chan Xue Li
+* Darryl Teo
+* Goh Jia En
+* Judy Ang Kin Lin
+* Mateo Jalen Andrew Calderon
 
 ## Version History
 
