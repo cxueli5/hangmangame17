@@ -80,9 +80,9 @@ function new_word(form) {
   } else advise("A word is already in play!");
 }
 
-// function to check user Choice of letter on keyboard
+// function to check user choice of letter on keyboard
 function seek(letter) {
-  stopRunning = true
+  stopRunning = true;
   if (!running) advise(".....Click GO to start !");
   else {
     t = 0;
@@ -140,35 +140,39 @@ var animate = function () {
   drawArray[failnum]();
 };
 
-// bouncing hangman canvas (sort of incomplete because its meant to cause the canvas to oscillate only when the hangman appears)
-hangmanBounce = function() {
+// web animation
+// bouncing hangman canvas (cause the canvas to oscillate only when the hangman appears)
+hangmanBounce = function () {
   const AMPLITUDE = 3;
 
   function degToRad(deg) {
-    return deg * (Math.PI/180);
-   }
+    return deg * (Math.PI / 180);
+  }
 
   function render(frame) {
     const rad = degToRad(frame * 10);
     const cosY = Math.cos(rad) * AMPLITUDE;
 
-    document.getElementById("stickman").style.transform = `translate(${cosY}px)`;
+    document.getElementById(
+      "stickman"
+    ).style.transform = `translate(${cosY}px)`;
   }
 
   function frameLoop() {
     const FPS = 20;
-    let prevTick = 0, firstTick;
-  
+    let prevTick = 0,
+      firstTick;
+
     window.requestAnimationFrame(function loop() {
       window.requestAnimationFrame(loop);
-      let nowTick = Math.round(FPS * performance.now() / 1000);
-  
-    // Get first tick
+      let nowTick = Math.round((FPS * performance.now()) / 1000);
+
+      // get first tick
       if (!firstTick) {
         firstTick = nowTick;
       }
 
-    // If tick has not changed, ignore
+      // if tick has not changed, ignore
       if (nowTick === prevTick) {
         return;
       }
@@ -179,9 +183,9 @@ hangmanBounce = function() {
       render(frame);
     });
   }
-  frameLoop()
-  }
-hangmanBounce()
+  frameLoop();
+};
+hangmanBounce();
 // drawing functions
 canvas = function () {
   context.beginPath(); // call to end previous path. IMPORTANT

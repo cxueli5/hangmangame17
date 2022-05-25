@@ -2,7 +2,7 @@
 
 /* whole HTML */
 html * {
-  font-family: 'Mali', cursive;
+  font-family: "Mali", cursive;
 }
 
 /* body light mode */
@@ -35,13 +35,14 @@ body {
 
 /* button hover over */
 .button:hover {
-    background-color: #08530b;
-    cursor: pointer;
-    color: white;
-    font-size: 16px;
-    box-shadow: 2px 4px #888;
-    border-radius: 10px;
-    transition: background-color 0.3s ease-in-out, border-radius 0.2s linear, box-shadow 0.3s ease;
+  background-color: #08530b;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  box-shadow: 2px 4px #888;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out, border-radius 0.2s linear,
+    box-shadow 0.3s ease;
 }
 
 /* text style */
@@ -50,12 +51,13 @@ h1 {
 }
 
 /* table row and data */
-tr, td {
+tr,
+td {
   border-style: none;
   border: white;
 }
 
-.table>tbody>tr>td {
+.table > tbody > tr > td {
   border-top: 0px;
 }
 
@@ -109,7 +111,7 @@ input[type="TEXT"] {
   animation-duration: 350ms;
   animation-fill-mode: forwards;
   transition: all 350ms ease-in;
-  content: '';
+  content: "";
   width: 30px;
   height: 28px;
   border: 3px solid #f5eb71;
@@ -143,7 +145,7 @@ input[type="TEXT"] {
 }
 
 /* change text colour in dark mode */
-.darkModeText{
+.darkModeText {
   color: white;
 }
 
@@ -182,7 +184,7 @@ input[type="TEXT"] {
   transition-delay: 0ms;
   transition: all 250ms ease-in;
   position: absolute;
-  content: '';
+  content: "";
   /* dots on moon */
   box-shadow: #e8e8ea -13px 0 0 2px, #e8e8ea -15px 5px 0 0.3px;
   left: 83px;
@@ -214,7 +216,7 @@ input[type="TEXT"] {
 /* input text (score display) */
 .displayText {
   width: 25%;
-  position: absolute;
+  font-weight: inherit;
 }
 
 /* word and message display */
