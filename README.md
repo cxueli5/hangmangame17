@@ -28,17 +28,18 @@ npm install express --savenpm install node-telegram-bot-api --save
 
 * deployed and hosted via Heroku
 * generate Telegram bot token from @BotFather on Telegram
+* GitHub repo link: https://github.com/cxueli5/hangmangame17
 
 ## Acknowledgments
 * Frog audio: http://thecyberbuddy.com/sounds/frog.wav  
 
 ## Authors
 
-Xue Li
-Judy
-Jiaen
-Darryl
-Jalen
+* Chan Xue Li
+* Darryl Teo
+* Goh Jia En
+* Judy Ang Kin Lin
+* Mateo Jalen Andrew Calderon
 
 ## Version History
 
