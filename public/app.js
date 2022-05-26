@@ -58,7 +58,7 @@ function pick() {
 
   if (!blank) {
     // if all letters in list1 (correct used letter list) matches word, 'blank' remains 0 for all i
-    document.f.tried.value = "       === You Win! ===";
+    document.f.tried.value = "        === You Win! ===";
     document.f.score.value++;
     running = 0;
   }
