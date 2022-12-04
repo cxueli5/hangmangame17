@@ -16,7 +16,7 @@ Players can play the game either on our telegram bot: https://t.me/hangmanttbot?
 This project is done for TikTok Youth Camp 2022 by group 17
 
 ## Important update (4/12/2022)
-As there is some issues with Heroku 22 deployment, here is a demo video:
+As there is some issues with Heroku 22 deployment due to budget issues, here is a demo video:
 https://youtu.be/FkEoiOE0eqQ
 
 ## Getting Started
